@@ -4,8 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo-component/todo-component';
 
 const routes: Routes = [
-  { path: 'todo', component: TodoComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'todo',
+    component: TodoComponent,
+  }
 ];
 
 @NgModule({
