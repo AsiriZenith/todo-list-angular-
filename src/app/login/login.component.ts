@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +11,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   username_error = false;
   password_error = false;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value.username);
     console.log(this.loginForm.value.password);
     if(this.loginForm.value.username == 'admin' && this.loginForm.value.password == 'admin'){
-      alert("hello")
+      this.router.navigate(['/todo']);
     }
     if(this.loginForm.value.username != 'admin'){
       this.username_error = true;
